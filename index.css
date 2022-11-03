@@ -1,0 +1,286 @@
+
+/* Body Stylings */
+* {
+
+    margin: 0px;
+    padding: 0px;
+
+    /* User Select None */
+    user-select: none; 
+}
+
+
+/* TodoList Main */
+.TodoList {
+
+    width: 100%;
+    height: 100vh;
+}
+
+/* Navbar */
+
+.TodoList_Navbar {
+
+    background-color: white;
+    border-bottom: 1px solid #D1D5DB;    
+}
+
+.TodoList_NavSubDiv {
+
+    background-color: white;
+}
+
+.TodoList_NavTitle {
+
+    font-weight: 700;
+}
+
+/* Todo Body */
+.TodoList_Body {
+
+    width: 100%;
+    height: 92.4vh;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+    padding: 12px;
+
+}
+
+/* TodoList SubTitle */
+.TodoList_SubTitle {
+
+    color: #9CA3AF;
+}
+
+
+
+/* TodoList MainBlock  */
+.TodoList_MainBlock {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    
+}
+
+
+/* TodoList_AddTabBlock */
+.TodoList_AddTabBlock, .TodoList_TodoListBlock  {
+
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 2%;
+}
+
+/* TodoList_MiddleLine */
+.TodoList_MiddleLine {
+
+    width: 1px;
+    height: 100%;
+
+    background-color:#D1D5DB;
+}
+
+.TodoList_MiddleLine1 {
+
+    width: 100%;
+    height: 1px;
+
+    background-color:#D1D5DB;
+}
+
+/* Block Titles */
+.TodoList_AddTabTitle, .TodoList_ListBlockTitle {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #D97706;
+}
+
+.btn-primary {
+    background-color: #D97706 !important;
+    border: none !important;
+
+}
+
+/* Card */
+.TodoList_AddTaskCard, .TodoList_EditCard, .TodoList_Completed {
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 5%;
+    padding: 2% 3%;
+    opacity: 1;
+    /*box-shadow: 2px -2px 30px rgba(0, 0, 0, 0.03), -2px 2px 30px rgba(0, 0, 0, 0.03), 2px 2px 30px rgba(0, 0, 0, 0.03), -2px -2px 30px rgba(0, 0, 0, 0.03);
+*/
+    border: 1px solid #D1D5DB;
+    border-radius: 10px;
+}
+
+.TodoList_EditCard, .TodoList_Completed {
+    margin-top: 3%;
+}
+
+.TodoList_Completed {
+    opacity: 0.5;
+}
+
+/* InputField */
+.TodoList_InputField, .TodoList_EditInputField {
+
+    width: 100%;
+    border: none;
+    outline: none;
+
+    box-sizing: border-box;
+    margin: 8px 0px;
+}
+
+/* TodoList Description */
+.TodoList_Description, .TodoList_EditDesc {
+
+    width: 100%;
+    border: none;
+    border-top: 1px solid #D1D5DB;
+    outline: none;
+
+    box-sizing: border-box;
+    padding: 8px 0px;
+}
+
+
+
+/* TodoList Buttons Section */
+.TodoList_ButtonBlock, .TodoList_EditButtonBlock {
+
+    width: 98%;
+    
+    display: flex;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    margin: 15px 0px 10px 0px;
+}
+
+/* Set Time Btn */
+.TodoList_SetTime, .TodoList_EditTime {
+
+    width: 100px;
+
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 2px 5px;
+}
+
+/* Add Task Btn */
+.TodoList_AddTaskBtn {
+
+    background: #6D28D9 !important;
+    border: none !important;
+}
+
+/* Toolbar Block*/
+.TodoList_TodoListBlock {
+
+    justify-content: center;
+    padding: 2% 2% 0% 2%;
+}
+
+/* TodoList_List Scroll */
+.TodoList_ListScroll {
+
+    width: 100%;
+    height: 72vh;
+
+    padding: 0% 0% 1% 0%;
+    
+    overflow: scroll;
+}
+
+.TodoList_EditSubTitle {
+
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center     ;
+    box-sizing: border-box;
+    margin-top: 2%;
+}
+
+/* TodoList Scroll */
+.TodoList_ListScroll::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+
+/* TitleCheckBox */
+.TodoList_TitleCheckBox, .TodoList_EditDescripion {
+
+    width: 98%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-sizing: border-box;
+    margin: 1% 0px;
+}
+
+.TodoList_EditDescripion {
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+}
+
+/* TodoList EditCard Title */
+.TodoList_EditCardTitle {
+    
+    margin: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+}
+
+.TodoList_EditButtonBlock {
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+    margin: 5px 0px;
+}
+
+.TodoList_FixTime {
+    margin: 0px;
+    font-weight: 500;
+    color: black;
+}
+
+.TodoList_Update {
+    background-color: #6D28D9 !important;
+    border: none !important;
+}
+
