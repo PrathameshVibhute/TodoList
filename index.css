@@ -114,6 +114,11 @@
 
 }
 
+.modal {
+
+    
+}
+
 /* Card */
 .TodoList_AddTaskCard, .TodoList_EditCard, .TodoList_Completed {
 
@@ -197,7 +202,6 @@
 /* Toolbar Block*/
 .TodoList_TodoListBlock {
 
-    justify-content: center;
     padding: 2% 2% 0% 2%;
 }
 
@@ -284,3 +288,90 @@
     border: none !important;
 }
 
+
+
+
+/* Media Query for Small Screen Laptops */
+@media only screen and (max-width: 1030px) {
+
+    .TodoList_MainTitle {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* Media Query for Tablets */
+@media only screen and (max-width: 800px) {
+    
+    .TodoList_MainTitle {
+        font-size: 1.1rem !important;
+        margin: 4px 0px 4px 0px !important;
+    }
+
+    .TodoList_SubTitle {
+        font-size: 0.9rem !important;
+        margin: 0px 0px 4px 0px !important;
+    }
+}
+
+/* Media Query for smart Phones */
+@media only screen and (max-width: 500px) {
+    
+    .TodoList_MainBlock {
+
+        flex-direction: column;
+    }
+
+    .TodoList_AddTabTitle {
+
+        width: 100%;
+        font-size: 1.1rem !important;
+    }
+
+    .TodoList_AddTaskCard {
+
+        margin-top: 2%;
+    }
+
+    .TodoList_InputField, .TodoList_Description, .TodoList_EditInputField, .TodoList_EditDesc, .TodoList_EditCardTitle, .TodoList_EditDescripion {
+
+        font-size: 0.8rem !important;
+    }
+
+    .TodoList_MiddleLine {
+        height: 1px;
+        width: 100%;
+
+        box-sizing: border-box;
+        margin: 2% 0%;
+    }
+
+    .TodoList_ListBlockTitle {
+
+        align-items: center;
+        font-size: 1.1rem !important;
+    }
+
+    .TodoList_AddTabBlock, .TodoList_TodoListBlock {
+        width: 100%;
+        padding-left: 0%;
+        padding-right: 0%; 
+
+        box-sizing: border-box;
+    }
+
+    .TodoList_ListScroll {
+
+        height: 48vh;
+    }
+
+    .TodoList_EditDescripion {
+
+        box-sizing: border-box;
+        margin: 2% 0%;
+    }
+
+    .TodoList_Update,  .TodoList_Finish, .TodoList_FixTime, .TodoList_ClearAll, .TodoList_EditTime, .TodoList_SetTime, .TodoList_AddTaskBtn {
+
+        font-size: 0.8rem !important;
+    }
+}

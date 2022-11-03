@@ -19,6 +19,9 @@ if (localStorage.getItem("task") === null) {
 
 }
 
+
+ 
+
 // Title & Subtitle
 let mainTitle = document.getElementsByClassName("TodoList_MainTitle");
 let subTitle = document.getElementsByClassName("TodoList_SubTitle");
@@ -88,9 +91,6 @@ function onTaskAdded() {
     addTaskInput[0].value = "";
     addTaskDesc[0].value = "";
     addTaskTime[0].value = "00:00";
-
-    // Change Data of Subtitle
-    subTitle[0].innerText = `You've got ${taskList.length} task to do today.`
     
     // display list of task
     displayData();
@@ -115,9 +115,6 @@ function onTaskDelete(index) {
 
   // update the list to local storage 
   localStorage.setItem("task", JSON.stringify(taskList));
-
-  // update subtitle of the page
-  subTitle[0].innerText = `You've got ${taskList.length} task to do today.`
   
   // display the task list
   displayData();
@@ -131,9 +128,6 @@ function onTaskUpdate(index) {
   
   // update the list to local storage
   localStorage.setItem("task", JSON.stringify(taskList));
-
-  // update subtitle of the page
-  subTitle[0].innerText = `You've got ${taskList.length} task to do today.`
 
   // display the task list
   displayData();
@@ -167,9 +161,6 @@ function updateTaskToLocalStorage(index) {
 
     // update localstorage value with new list data
     localStorage.setItem("task", JSON.stringify(taskList));
-  
-    // update subtitle of the page
-    subTitle[0].innerText = `You've got ${taskList.length} task to do today.`
     
     // display task list on the screen
     displayData();
@@ -184,9 +175,6 @@ function taskCompleted(index) {
 
   // Update the list to local storage
   localStorage.setItem("task", JSON.stringify(taskList));
-
-  // Update the subtitle of the page
-  subTitle[0].innerText = `You've got ${taskList.length} task to do today.`
   
   // display the task list on the page
   displayData();
@@ -215,8 +203,6 @@ function taskSort(data) {
   let newTaskList = [];
   var hr1 = parseInt(data.time.charAt(0) + data.time.charAt(1));
   var hr2 = "";
-  var min1 = parseInt(data.time.charAt(3) + data.time.charAt(4));
-  var min2 = "";
 
   if(taskList.length === 0) {
     newTaskList.push(data);
@@ -227,8 +213,8 @@ function taskSort(data) {
       hr2 =  parseInt(taskList[i].time.charAt(0) + taskList[i].time.charAt(1));
       min2 = parseInt(taskList[i].time.charAt(3) + taskList[i].time.charAt(4));
 
-      newTaskList.push(data);
       if(hr2 > hr1) {
+        newTaskList.push(data);
         index = i;
         break;
       }  
@@ -240,6 +226,7 @@ function taskSort(data) {
     
       newTaskList.push(data);
     } else {
+
       for(var i = index; i < taskList.length; i++) {
         console.log(taskList[i]);
         newTaskList.push(taskList[i]);
@@ -264,6 +251,9 @@ function displayData() {
   } else {
     mainTitle[0].innerText = "Good Night Prathamesh,";
   }
+
+   // Update the subtitle of the page
+   subTitle[0].innerText = `You've got ${taskList.length} task to do today.`
 
   if (taskList.length !== 0) {
     scrollComp[0].innerHTML = "";
