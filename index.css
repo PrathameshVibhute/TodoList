@@ -317,7 +317,17 @@
 }
 
 /* Media Query for Tablets */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 840px) {
+   
+    .TodoList_MainBlock {
+
+        flex-direction: column;
+    }
+
+    .TodoList_AddTabBlock, .TodoList_TodoListBlock {
+
+        width: 100%;
+    }
     
     .TodoList_MainTitle {
         font-size: 1.1rem !important;
@@ -327,6 +337,10 @@
     .TodoList_SubTitle {
         font-size: 0.9rem !important;
         margin: 0px 0px 4px 0px !important;
+    }
+
+    .TodoList_ListScroll {
+        height: 35vh;
     }
 }
 
