@@ -114,9 +114,13 @@
 
 }
 
-.modal {
+.TodoList_Finish, .TodoList_Update {
+    pointer-events: all;
+}
 
-    
+.unClickEffect {
+
+    pointer-events: none;
 }
 
 /* Card */
@@ -134,6 +138,11 @@
 */
     border: 1px solid #D1D5DB;
     border-radius: 10px;
+}
+
+.TodoList_AddTaskCard1 {
+
+    margin-top: 2%;
 }
 
 .TodoList_EditCard, .TodoList_Completed {
@@ -167,7 +176,15 @@
     padding: 8px 0px;
 }
 
+.red {
 
+    color: red !important;
+}
+
+.black {
+
+    color: black !important;
+}
 
 /* TodoList Buttons Section */
 .TodoList_ButtonBlock, .TodoList_EditButtonBlock {
