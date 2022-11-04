@@ -191,8 +191,20 @@ function taskSort(data) {
       hr = parseInt(taskList[i].time.charAt(0) + taskList[i].time.charAt(1));
       min = parseInt(taskList[i].time.charAt(3) + taskList[i].time.charAt(4));
 
-      if (hr >= newHr) {
-        console.log(hr + ":" + newHr)
+      if (hr > newHr) {
+
+        newTaskList.push(data);
+        index = i;
+        break;
+
+      } else if(hr < newHr) {
+
+        newTaskList.push(taskList[i]);
+        index = -1;
+        continue;
+      
+      }else if(hr == newHr) {
+
         if (min >= newMin) {
           newTaskList.push(data);
           index = i;
@@ -216,7 +228,6 @@ function taskSort(data) {
     }
   }
 
-  console.log(newTaskList)
   return newTaskList;
 }
 
@@ -238,16 +249,22 @@ function displayDate(oldTime) {
   var mins = parseInt(oldTime.charAt(3) + oldTime.charAt(4));
   var newTime = "";
   
-  if (hrs > 12) {
-    newTime = hrs - 12 + ":" + oldTime.charAt(3) + oldTime.charAt(4) + " PM";
+  if (hrs > 11) {
+    if((hrs-12) === 0)
+      newTime = 12 + ":" + oldTime.charAt(3) + oldTime.charAt(4) + " PM";
+    else
+      newTime = hrs - 12 + ":" + oldTime.charAt(3) + oldTime.charAt(4) + " PM";
   } else if (hrs < 9) {
     newTime = "0" + hrs + ":" + oldTime.charAt(3) + oldTime.charAt(4) + " AM";
   } else {
     newTime = hrs + ":" + oldTime.charAt(3) + oldTime.charAt(4) + " AM";
   }
 
-  if(currentHrs >= hrs) {
+  if(currentHrs > hrs) {
     
+    colorFlag = "red"
+
+  } else if(currentHrs == hrs) {
     if(currentMins >= mins) {
       colorFlag = "red"
     }
@@ -382,6 +399,6 @@ setInterval(() => {
   currentDate = new Date();
   currentHrs = currentDate.getHours();
   currentMins = currentDate.getMinutes();
-  
+
   displayData();
 }, 10000);
