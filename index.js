@@ -3,19 +3,20 @@
 // Task list
 let taskList = [];
 
+
 // Setting Local Storage
 if (localStorage.getItem("task") === null) {
   localStorage.setItem("task", JSON.stringify(taskList));
-} else if (JSON.parse(localStorage.getItem("task")).length !== 0) {
-  taskList = JSON.parse(localStorage.getItem("task"));
 } else {
-  localStorage.setItem("task", JSON.stringify(taskList));
+  taskList = JSON.parse(localStorage.getItem("task"));
 }
+
 
 // Title & Subtitle
 let mainTitle = document.getElementsByClassName("TodoList_MainTitle");
 let subTitle = document.getElementsByClassName("TodoList_SubTitle");
 subTitle[0].innerText = `You've got ${taskList.length} task to do today.`;
+
 
 // Add Task Card Variables
 let addTaskCard = document.getElementsByClassName("TodoList_AddTaskCard");
@@ -24,11 +25,10 @@ let addTaskDesc = document.getElementsByClassName("TodoList_Description");
 let addTaskTime = document.getElementsByClassName("TodoList_SetTime");
 let addTaskBtn = document.getElementsByClassName("TodoList_AddTaskBtn");
 
-// Local storage Variable
-//console.log("Local Storage:", localStorage);
 
 // TodoList Scroll Variables
 let scrollComp = document.getElementsByClassName("TodoList_ListScroll");
+
 
 // Edit Card Variables
 let deleteCard = document.getElementsByClassName("TodoList_Finish");
@@ -39,6 +39,7 @@ let editInput = document.getElementsByClassName("TodoList_EditInputField");
 let editDesc = document.getElementsByClassName("TodoList_EditDesc");
 let editTime = document.getElementsByClassName("TodoList_EditTime");
 
+
 // Date Variable
 let currentDate = new Date();
 let currentHrs = currentDate.getHours();
@@ -46,17 +47,27 @@ let currentMins = currentDate.getMinutes();
 let cardTimeColor = "";
 let cardTime = "";
 
+
 ///////////////////////////////////////////// Event Handlers /////////////////////////////////////////////////////
+
 
 // Add task to Local Storage List
 function onTaskAdded() {
+
   // Stores Data in local variables
   var title = addTaskInput[0].value;
   var desc = addTaskDesc[0].value;
   var time = addTaskTime[0].value;
 
-  // if is executed if below conditon is satisfied
-  if (time === "00:00" || title === "" || desc === "") {
+  // Current Time variables
+  var newHr = parseInt(time.charAt(0) + time.charAt(1));
+  var newMin = parseInt(time.charAt(3) + time.charAt(4));
+
+  /* if is executed if below conditon is satisfied:
+     1] Give Time is less than current time
+     2] If title, description and time are empty
+  */
+  if (((newHr <= currentHrs && newMin <= currentMins) || time === "00:00" || time === "--:--")  || title === "" || desc === "") {
     addTaskCard[0].style.border = "1px solid red";
     addTaskTime[0].style.border = "1px solid red";
     addTaskDesc[0].style.borderTop = "1px solid red";
@@ -87,15 +98,18 @@ function onTaskAdded() {
   }
 }
 
-// It is called when Task Data Added
+
+// It is called when Task Data Added, to change border color to previous state
 function addTaskDataAdded() {
   addTaskDesc[0].style.borderTop = "1px solid #D1D5DB";
   addTaskCard[0].style.border = "1px solid #D1D5DB";
   addTaskTime[0].style.border = "1px solid #D1D5DB";
 }
 
+
 // Deleting Task From List
 function onTaskDelete(index) {
+
   // delete task from specified index
   taskList.splice(index, 1);
 
@@ -105,6 +119,7 @@ function onTaskDelete(index) {
   // display the task list
   displayData();
 }
+
 
 // Updating Task From List
 function onTaskUpdate(index) {
@@ -118,6 +133,7 @@ function onTaskUpdate(index) {
   displayData();
 }
 
+
 // Is called when task wanted to be updated
 function updateTaskToLocalStorage(index) {
   // Stores value of each input fields in below given local variables
@@ -125,9 +141,19 @@ function updateTaskToLocalStorage(index) {
   var desc = editDesc[0].value;
   var time = editTime[0].value;
 
-  if (title === "" || desc === "" || time === "00:00") {
+  // Current Time variables
+  var newHr = parseInt(time.charAt(0) + time.charAt(1));
+  var newMin = parseInt(time.charAt(3) + time.charAt(4));
+
+  /* if is executed if below conditon is satisfied:
+     1] Give Time is less than current time
+     2] If title, description and time are empty
+  */
+
+  if (title === "" || desc === "" || ((newHr <= currentHrs && newMin <= currentMins) || time === "00:00" || time === "--:--") ) {
     finishCard[0].style.opacity = 1;
   } else {
+
     // Initially deletes the specified index data
     taskList.splice(index, 1);
 
@@ -147,6 +173,7 @@ function updateTaskToLocalStorage(index) {
     displayData();
   }
 }
+
 
 // This function is called when checkbox on the edit card is clicked
 function taskCompleted(index) {
@@ -172,6 +199,7 @@ function clearLocalStorage() {
 }
 
 ///////////////////////////////////////////// Normal Function /////////////////////////////////////////////////////
+
 
 // Function for sorting task list
 function taskSort(data) {
@@ -391,6 +419,7 @@ function displayData() {
   }
 }
 
+
 displayData();
 
 // Initially display the task list
@@ -401,4 +430,4 @@ setInterval(() => {
   currentMins = currentDate.getMinutes();
 
   displayData();
-}, 10000);
+}, 100000);
